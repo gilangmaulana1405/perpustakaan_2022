@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\AnggotaController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +23,13 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::resource('/peminjaman', PeminjamanController::class);
-
+Route::resource('/pengembalian', PengembalianController::class);
 
 // Anggota
 Route::get('/anggota', [AnggotaController::class, 'index']);
 Route::post('/anggota', [AnggotaController::class, 'store']);
 Route::get('/anggota/edit/{id}', [AnggotaController::class, 'edit'])->name('edit.anggota');
-Route::get('/anggota/destroy/{id}', [AnggotaController::class, 'destroy'])->name('delete.anggota');
+Route::delete('/anggota/delete/{id}', [AnggotaController::class, 'destroy'])->name('delete.anggota');
 
 
 

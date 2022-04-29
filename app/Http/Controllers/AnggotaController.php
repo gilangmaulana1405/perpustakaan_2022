@@ -51,5 +51,11 @@ class AnggotaController extends Controller
 
      public function destroy($id) 
      {
+        $data = AnggotaModel::where('id', $id)->first();
+
+        if ($data != null) {
+            $data->delete();
+            return redirect('/anggota')->with('success', 'Data has been deleted!');
+        }
      }
 }

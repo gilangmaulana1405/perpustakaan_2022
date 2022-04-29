@@ -3,8 +3,8 @@
 
     <!-- Page Heading -->
      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Peminjaman</h1>
-        <a href="/peminjaman/create" class="btn btn-primary">Add Data</a>
+        <h1 class="h3 mb-0 text-gray-800">{{ $title; }}</h1>
+        <a href="/pengembalian/create" class="btn btn-primary">Add Data</a>
      </div>
 
     @if(session()->has('success'))
@@ -20,7 +20,7 @@
      {{-- Datatable --}}
        <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Peminjaman</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data {{ $title; }}</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -35,11 +35,12 @@
                                             <th>Penerbit</th>
                                             <th>Tahun Terbit</th>
                                             <th>Tanggal Peminjaman</th>
+                                            <th>Tanggal Pengembalian</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($peminjaman as $data)
+                                        @foreach ($pengembalian as $data)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ $data->anggota->nama_anggota }}</td>
@@ -48,7 +49,8 @@
                                             <td>{{ $data->buku->penulis }}</td>
                                             <td>{{ $data->buku->penerbit }}</td>
                                             <td>{{ $data->buku->tahun_terbit }}</td>
-                                            <td>{{ $data->tanggal_pinjam }}</td>
+                                            <td>{{ $data->peminjaman->tanggal_pinjam }}</td>
+                                            <td>{{ $data->tanggal_kembali }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-md">Detail</a>
                                                 <a href="#" class="btn btn-warning btn-md">Edit</a>
@@ -79,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action="/peminjaman/{{ $data->id }}" method="post" class="d-inline">
+                    <form action="/pengembalian/{{ $data->id }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
                         <button class="btn btn-danger">Delete</button>

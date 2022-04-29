@@ -129,11 +129,6 @@
                 
             })
 
-            // Delete Anggota
-            $('#btn_delete').on('click', function() {
-                
-            }); 
-
         });
     </script>
 

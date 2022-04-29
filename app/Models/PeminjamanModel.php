@@ -22,4 +22,9 @@ class PeminjamanModel extends Model
     {
         return $this->belongsTo(BukuModel::class, 'buku_id');
     }
+
+    public function pengembalian()
+    {
+        return $this->hasMany(PengembalianModel::class, 'peminjaman_id');
+    }
 }

@@ -7,7 +7,14 @@
         <a class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">Add Data</a>
      </div>
 
-        <div id="success_message" class="col-6"></div>
+        @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show col-6" role="alert">
+                    <strong>Successfuly!</strong> {{ session('success') }}.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        @endif()
 
      {{-- Datatable --}}
        <div class="card shadow mb-4">
@@ -40,7 +47,8 @@
                                             <td>
                                                 <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                                 <a href="{{ route('edit.anggota', $data->id) }}" data-toggle="modal" data-target="#modalEdit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <button type="button" value="{{ $data->id }}"  data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                <a href="#" class="btn btn-danger btn-sm" onclick="handleDelete()"><i class="fa fa-trash"></i>
+                                                </a>
                                             </td>
                                         </tr> 
                                         @endforeach
@@ -155,13 +163,24 @@
                     </button>
                 </div>
                <div class="modal-body">
+               <input type="hidden" name="id" id="id"></input>
                 <p>Are you sure you want to delete this data?</p>
                </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-danger" id="btn_delete">Delete</button>
+                    <form action="{{ route('delete.anggota', $data->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger">Hapus</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+<script>
+    function handleDelete(){
+        $('#modalDelete').modal('show');
+    }
+</script>

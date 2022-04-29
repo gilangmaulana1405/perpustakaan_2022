@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AnggotaModel;
 use App\Models\BukuModel;
+use App\Models\AnggotaModel;
 use App\Models\PeminjamanModel;
+use App\Models\PengembalianModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class PeminjamanController extends Controller
+class PengembalianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +18,10 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $data = PeminjamanModel::all();
-        return view('peminjaman.index', [
-            'title' => 'Peminjaman',
-            'peminjaman' => $data
+        $data = PengembalianModel::all();
+        return view('pengembalian.index', [
+            'title' => 'Pengembalian',
+            'pengembalian' => $data
         ]);
     }
 
@@ -31,11 +32,13 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
+        $peminjaman = PeminjamanModel::all();
         $nama_anggota = AnggotaModel::all();
         $buku = BukuModel::all();
 
-        return view('peminjaman.create', [
-            'title' => 'Tambah Data Peminjaman',
+        return view('pengembalian.create', [
+            'title' => 'Tambah Data Pengembalian',
+            'peminjaman' => $peminjaman,
             'nama_anggota' => $nama_anggota,
             'buku' => $buku
         ]);
@@ -49,8 +52,9 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request, Validator $validator)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'tanggal_pinjam' => 'required'
+            'tanggal_kembali' => 'required'
         ]);
 
         if($validator->fails()){
@@ -60,22 +64,23 @@ class PeminjamanController extends Controller
         $validated = $validator->validated();
 
         $validated = [
+            'peminjaman_id' => $request->peminjaman_id,
             'anggota_id' => $request->anggota_id,
             'buku_id' => $request->buku_id,
-            'tanggal_pinjam' => $request->tanggal_pinjam,
+            'tanggal_kembali' => $request->tanggal_kembali,
         ];
 
-        PeminjamanModel::create($validated);
-        return redirect('/peminjaman')->with('success', 'Data has been created!');
+        PengembalianModel::create($validated);
+        return redirect('/pengembalian')->with('success', 'Data has been created!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PeminjamanModel  $peminjamanModel
+     * @param  \App\Models\PengembalianModel  $pengembalianModel
      * @return \Illuminate\Http\Response
      */
-    public function show(PeminjamanModel $peminjamanModel)
+    public function show(PengembalianModel $pengembalianModel)
     {
         //
     }
@@ -83,10 +88,10 @@ class PeminjamanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PeminjamanModel  $peminjamanModel
+     * @param  \App\Models\PengembalianModel  $pengembalianModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(PeminjamanModel $peminjamanModel)
+    public function edit(PengembalianModel $pengembalianModel)
     {
         //
     }
@@ -95,10 +100,10 @@ class PeminjamanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PeminjamanModel  $peminjamanModel
+     * @param  \App\Models\PengembalianModel  $pengembalianModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PeminjamanModel $peminjamanModel)
+    public function update(Request $request, PengembalianModel $pengembalianModel)
     {
         //
     }
@@ -106,16 +111,13 @@ class PeminjamanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PeminjamanModel  $peminjamanModel
+     * @param  \App\Models\PengembalianModel  $pengembalianModel
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = PeminjamanModel::where('id', $id)->first();
-
-         if ($data != null) {
-            $data->delete();
-            return redirect('/peminjaman')->with('success', 'Data has been deleted!');
-        }
+        $pengembalian = PengembalianModel::find($id);
+        $pengembalian->delete();
+        return redirect('/pengembalian')->with('success', 'Data has been deleted!');
     }
 }
