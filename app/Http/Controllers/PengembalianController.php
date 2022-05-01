@@ -91,9 +91,19 @@ class PengembalianController extends Controller
      * @param  \App\Models\PengembalianModel  $pengembalianModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(PengembalianModel $pengembalianModel)
+    public function edit(PengembalianModel $pengembalianModel, $id)
     {
-        //
+        $pengembalian = PengembalianModel::find($id);
+        $peminjaman = PeminjamanModel::all();
+        $anggota = AnggotaModel::all();
+        $buku = BukuModel::all();
+        return view('pengembalian.edit', [
+            'title' => 'Edit Data Pengembalian',
+            'pengembalian' => $pengembalian,
+            'peminjaman' => $peminjaman,
+            'nama_anggota' => $anggota,
+            'buku' => $buku
+        ]);
     }
 
     /**
@@ -103,9 +113,11 @@ class PengembalianController extends Controller
      * @param  \App\Models\PengembalianModel  $pengembalianModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PengembalianModel $pengembalianModel)
+    public function update(Request $request, $id)
     {
-        //
+        $data = PengembalianModel::find($id)->update($request->all());
+        
+        return redirect('/pengembalian')->with('success', 'Data has been updated');
     }
 
     /**

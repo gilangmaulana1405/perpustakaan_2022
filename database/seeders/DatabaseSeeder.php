@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        PeminjamanModel::factory(20)->create();
-        PengembalianModel::factory(20)->create();
-        AnggotaModel::factory(15)->create();
-        BukuModel::factory(50)->create();
+        PeminjamanModel::factory(5)->create();
+        PengembalianModel::factory(5)->create();
+        AnggotaModel::factory(5)->create();
+        BukuModel::factory(5)->create();
     }
 }

@@ -20,11 +20,11 @@ class PeminjamanModel extends Model
 
     public function buku()
     {
-        return $this->belongsTo(BukuModel::class, 'buku_id');
+        return $this->belongsTo(BukuModel::class);
     }
 
     public function pengembalian()
     {
-        return $this->hasMany(PengembalianModel::class, 'peminjaman_id');
+        return $this->hasMany(PengembalianModel::class);
     }
 }

@@ -15,7 +15,7 @@ class AnggotaModelFactory extends Factory
     {
         return [
             'nama_anggota' => $this->faker->name(),
-            'kelas' => $this->faker->randomDigit(),
+            'kelas' => mt_rand(1,5),
             'jurusan' => $this->faker->jobTitle(),
             'alamat' => $this->faker->streetAddress(),
         ];

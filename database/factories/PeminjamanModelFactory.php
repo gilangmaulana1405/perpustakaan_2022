@@ -14,8 +14,8 @@ class PeminjamanModelFactory extends Factory
     public function definition()
     {
         return [
-            'anggota_id' => $this->faker->numberBetween(1, 10),
-            'buku_id' => $this->faker->numberBetween(1, 10),
+            'anggota_id' => mt_rand(1,5),
+            'buku_id' => mt_rand(1,5),
             'tanggal_pinjam' => $this->faker->dateTime(),
         ];
     }

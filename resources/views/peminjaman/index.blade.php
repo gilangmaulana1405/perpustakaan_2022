@@ -51,7 +51,7 @@
                                             <td>{{ $data->tanggal_pinjam }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-md">Detail</a>
-                                                <a href="#" class="btn btn-warning btn-md">Edit</a>
+                                                <a href="/peminjaman/{{ $data->id }}/edit" class="btn btn-warning btn-md">Edit</a>
                                                 <button class="btn btn-danger btn-md" onclick="handleDelete()">Delete
                                                 </button>
                                             </form>

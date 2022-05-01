@@ -53,7 +53,7 @@
                                             <td>{{ $data->tanggal_kembali }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-md">Detail</a>
-                                                <a href="#" class="btn btn-warning btn-md">Edit</a>
+                                                <a href="/pengembalian/{{ $data->id }}/edit" class="btn btn-warning btn-md">Edit</a>
                                                 <button class="btn btn-danger btn-md" onclick="handleDelete()">Delete
                                                 </button>
                                             </form>

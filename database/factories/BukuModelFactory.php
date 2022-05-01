@@ -19,7 +19,7 @@ class BukuModelFactory extends Factory
             'penulis' => $this->faker->name(),
             'penerbit' => $this->faker->company(),
             'tahun_terbit' => $this->faker->year(),
-            'jumlah_buku' => $this->faker->randomDigit(),
+            'jumlah_buku' => mt_rand(1,5),
         ];
     }
 }

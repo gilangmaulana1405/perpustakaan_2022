@@ -4,7 +4,8 @@
     <!-- Page Heading -->
      <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Anggota</h1>
-        <a class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">Add Data</a>
+        {{-- <a class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">Add Data</a> --}}
+        <a href="/anggota/create" class="btn btn-primary">Add Data</a>
      </div>
 
         @if(session()->has('success'))
@@ -46,7 +47,7 @@
                                             <td>{{ $data->alamat }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                                <a href="{{ route('edit.anggota', $data->id) }}" data-toggle="modal" data-target="#modalEdit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#modalEdit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a href="#" class="btn btn-danger btn-sm" onclick="handleDelete()"><i class="fa fa-trash"></i>
                                                 </a>
                                             </td>
@@ -59,7 +60,7 @@
                     </div>
 
     {{-- Modal Add --}}
-     <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog">
+     {{-- <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -103,10 +104,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Modal Edit --}}
-    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
+    {{-- <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -150,10 +151,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Modal Delete --}}
-    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
+    {{-- <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -176,7 +177,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 <script>

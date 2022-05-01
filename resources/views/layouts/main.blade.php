@@ -125,9 +125,6 @@
             // End Add Anggota
 
             // Edit Anggota
-            $('btn_edit').on('click', function() {
-                
-            })
 
         });
     </script>

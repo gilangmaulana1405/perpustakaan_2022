@@ -86,9 +86,18 @@ class PeminjamanController extends Controller
      * @param  \App\Models\PeminjamanModel  $peminjamanModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(PeminjamanModel $peminjamanModel)
+    public function edit(PeminjamanModel $peminjamanModel, $id)
     {
-        //
+        $peminjaman = PeminjamanModel::find($id);
+        $anggota = AnggotaModel::all();
+        $buku = BukuModel::all();
+
+        return view('peminjaman.edit', [
+            'title' => 'Edit Data Peminjaman',
+            'peminjaman' => $peminjaman,
+            'nama_anggota' => $anggota,
+            'buku' => $buku
+        ]);
     }
 
     /**
@@ -98,9 +107,16 @@ class PeminjamanController extends Controller
      * @param  \App\Models\PeminjamanModel  $peminjamanModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PeminjamanModel $peminjamanModel)
+    public function update(Request $request, $id)
     {
-        //
+        $peminjaman = PeminjamanModel::find($id);
+        $peminjaman->anggota_id = $request->anggota_id;
+        $peminjaman->buku_id = $request->buku_id;
+        $peminjaman->tanggal_pinjam = $request->tanggal_pinjam;
+        $peminjaman->save();
+        
+        return redirect('/peminjaman')->with('success', 'Data has been updated');
+        
     }
 
     /**
