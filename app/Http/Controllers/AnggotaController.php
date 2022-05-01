@@ -73,9 +73,13 @@ class AnggotaController extends Controller
      * @param  \App\Models\AnggotaModel  $anggotaModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(AnggotaModel $anggotaModel)
+    public function edit(AnggotaModel $anggotaModel, $id)
     {
-        //
+        $anggota = AnggotaModel::find($id);
+        return view('anggota.edit', [
+            'title' => 'Edit Data Anggota',
+            'anggota' => $anggota
+        ]);
     }
 
     /**
@@ -85,9 +89,11 @@ class AnggotaController extends Controller
      * @param  \App\Models\AnggotaModel  $anggotaModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AnggotaModel $anggotaModel)
+    public function update(Request $request, AnggotaModel $anggotaModel, $id)
     {
-        //
+         $data = AnggotaModel::find($id)->update($request->all());
+        
+        return redirect('/anggota')->with('success', 'Data has been updated');
     }
 
     /**
@@ -96,13 +102,10 @@ class AnggotaController extends Controller
      * @param  \App\Models\AnggotaModel  $anggotaModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AnggotaModel $anggotaModel, $id)
+    public function destroy($id)
     {
-        // $data = AnggotaModel::where('id', $id)->first();
-
-        // if ($data != null) {
-        //     $data->delete();
-        //     return redirect('/anggota')->with('success', 'Data has been deleted!');
-        // }
+        $anggota = AnggotaModel::find($id);
+        $anggota->delete();
+        return redirect('/anggota')->with('success', 'Data berhasil dihapus');
     }
 }
