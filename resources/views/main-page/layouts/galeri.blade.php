@@ -14,6 +14,7 @@
     />
     <!-- My CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <title>Rak buku</title>
   </head>
   <body>
@@ -47,8 +48,11 @@
           <div class="row portfolio-container">
           @foreach($buku as $bk)
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <img src="https://source.unsplash.com/259x400?{{ $buku[0]->kategori }}" class="img-fluid" alt="foto1" />
+              <img src="{{ asset('img/'. $bk->gambar) }}" width="259px" height="400px" class="img-fluid" alt="" />
               <div class="portfolio-info">
+                <div class="col-9 d-flex justify-content-end">
+                  <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+                </div>
                 <h4>{{ $bk->judul }}</h4>
                 <p>{{ $bk->kategori }}</p>
                 <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-plus"></i></a>

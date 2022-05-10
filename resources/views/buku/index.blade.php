@@ -34,6 +34,7 @@
                                             <th>Penerbit</th>
                                             <th>Tahun Terbit</th>
                                             <th>Jumlah</th>
+                                            <th>Gambar</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -47,6 +48,9 @@
                                             <td>{{ $data->penerbit }}</td>
                                             <td>{{ $data->tahun_terbit }}</td>
                                             <td>{{ $data->jumlah_buku }}</td>
+                                            <td>
+                                                <img src="{{ asset('img/'.$data->gambar) }}" width="100px" height="100px">
+                                            </td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-md mt-2">Detail</a>
                                                 <a href="/buku/{{ $data->id }}/edit" class="btn mt-3 btn-warning btn-md">Edit</a>

@@ -11,7 +11,7 @@
 
      <div class="row justify-content-center mt-5">
         <div class="col-lg-6">
-            <form method="post" action="/buku">
+            <form method="post" action="/buku" enctype="multipart/form-data">
             @csrf
                  <div class="form-group">
                     <label for="judul">Judul Buku</label>

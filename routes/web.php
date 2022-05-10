@@ -33,6 +33,7 @@ Route::middleware(['guest'])->group(function (){
 
     Route::get('/main-page/home', [HomeController::class, 'index']);
     Route::get('/main-page/galeri', [GaleriController::class, 'index'])->name('galeri');
+    Route::get('/main-page/galeri/{id}', [GaleriController::class, 'show'])->name('galeri.show');
     Route::get('/main-page/cari-buku', [CariBukuController::class, 'index']);
 });
 

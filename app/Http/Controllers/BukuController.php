@@ -43,6 +43,7 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'judul' => 'required',
             'kategori' => 'required',
@@ -50,9 +51,16 @@ class BukuController extends Controller
             'penerbit' => 'required',
             'tahun_terbit' => 'required',
             'jumlah_buku' => 'required',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        BukuModel::create($request->all());
+        
+        $data = BukuModel::create($request->all());
+        if($request->hasFile('gambar')){
+            $request->file('gambar')->move('img/', $request->file('gambar')->getClientOriginalName());
+            $data->gambar = $request->file('gambar')->getClientOriginalName();
+            $data->save();
+        }
         return redirect('/buku')->with('success', 'Data berhasil ditambahkan');
     }
 

@@ -15,4 +15,13 @@ class GaleriController extends Controller
             'buku' => $data
         ]);
     }
+
+    public function show(Request $request)
+    {
+        $data = BukuModel::where('id', $request->id)->get();
+        return view('main-page.galeri.show', [
+            'title' => 'Detail Buku',
+            'buku' => $data
+        ]);
+    }
 }
