@@ -21,6 +21,7 @@ class Buku extends Migration
             $table->string('penerbit');
             $table->string('tahun_terbit');
             $table->integer('jumlah_buku');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
