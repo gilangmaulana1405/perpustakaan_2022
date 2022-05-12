@@ -28,9 +28,9 @@
         <div class="container" data-aos="fade-up">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="section-title">Galeri Buku</h3>
+              <h3 class="section-title">Gallery Book</h3>
               <div class="section-title-divider"></div>
-              <p class="section-description">Ini galeri buku buat liat-liat buku gais... jgn diliat doang beli ya!</p>
+              <p class="section-description">It's all books that what you want.. buy right now!</p>
             </div>
           </div>
 
@@ -38,9 +38,9 @@
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-app">Science</li>
+                {{-- <li data-filter=".filter-app">Science</li>
                 <li data-filter=".filter-card">Novel</li>
-                <li data-filter=".filter-web">Romance</li>
+                <li data-filter=".filter-web">Romance</li> --}}
               </ul>
             </div>
           </div>
@@ -50,13 +50,16 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <img src="{{ asset('img/'. $bk->gambar) }}" width="259px" height="400px" class="img-fluid" alt="" />
               <div class="portfolio-info">
-                <div class="col-9 d-flex justify-content-end">
-                  <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                </div>
+              <div class="row">
+                <div class="col-9">
+                  <div class="d-flex justify-content-end">
+                    <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+                  </div>
                 <h4>{{ $bk->judul }}</h4>
                 <p>{{ $bk->kategori }}</p>
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-plus"></i></a>
-                <a href="#" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
+                </div>
+              </div>
+                <button type="submit" class="btn btn-primary btn-md mt-3">Pinjam</button>
               </div>
             </div>
             @endforeach()
@@ -66,6 +69,7 @@
       <!-- End of Galeri -->
     </main>
 
+    @include('sweetalert::alert')
     <script src="{{ asset('js/main.js') }}"></script>
   </body>
 </html>

@@ -7,6 +7,7 @@ use App\Models\BukuModel;
 use App\Models\PeminjamanModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PeminjamanController extends Controller
 {
@@ -66,7 +67,8 @@ class PeminjamanController extends Controller
         ];
 
         PeminjamanModel::create($validated);
-        return redirect('/peminjaman')->with('success', 'Data has been created!');
+        Alert::success('Sukses', 'Data berhasil ditambahkan');
+        return redirect('/peminjaman');
     }
 
     /**
@@ -115,7 +117,8 @@ class PeminjamanController extends Controller
         $peminjaman->tanggal_pinjam = $request->tanggal_pinjam;
         $peminjaman->save();
         
-        return redirect('/peminjaman')->with('success', 'Data has been updated');
+        Alert::success('Sukses', 'Data berhasil diubah');
+        return redirect('/peminjaman');
         
     }
 
@@ -131,7 +134,8 @@ class PeminjamanController extends Controller
 
          if ($data != null) {
             $data->delete();
-            return redirect('/peminjaman')->with('success', 'Data has been deleted!');
+            Alert::success('Sukses', 'Data berhasil dihapus');
+            return redirect('/peminjaman');
         }
     }
 }

@@ -8,6 +8,7 @@ use App\Models\PeminjamanModel;
 use App\Models\PengembalianModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PengembalianController extends Controller
 {
@@ -71,7 +72,8 @@ class PengembalianController extends Controller
         ];
 
         PengembalianModel::create($validated);
-        return redirect('/pengembalian')->with('success', 'Data has been created!');
+        Alert::success('Sukses', 'Data berhasil ditambahkan');
+        return redirect('/pengembalian');
     }
 
     /**
@@ -117,7 +119,8 @@ class PengembalianController extends Controller
     {
         $data = PengembalianModel::find($id)->update($request->all());
         
-        return redirect('/pengembalian')->with('success', 'Data has been updated');
+        Alert::success('Sukses', 'Data berhasil diubah');
+        return redirect('/pengembalian');
     }
 
     /**
@@ -130,6 +133,7 @@ class PengembalianController extends Controller
     {
         $pengembalian = PengembalianModel::find($id);
         $pengembalian->delete();
-        return redirect('/pengembalian')->with('success', 'Data has been deleted!');
+        Alert::success('Sukses', 'Data berhasil dihapus');
+        return redirect('/pengembalian');
     }
 }

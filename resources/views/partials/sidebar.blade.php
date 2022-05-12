@@ -29,12 +29,17 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Peminjaman</span></a>
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Peminjaman Ditempat</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('pinjam.buku') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Pinjam Buku Online</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/pengembalian">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-book"></i>
                     <span>Pengembalian</span></a>
             </li>
 

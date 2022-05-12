@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnggotaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AnggotaController extends Controller
 {
@@ -53,7 +54,8 @@ class AnggotaController extends Controller
         ]);
 
         AnggotaModel::create($request->all());
-        return redirect('/anggota')->with('success', 'Data berhasil ditambahkan');
+        Alert::success('Sukses', 'Data berhasil ditambahkan');
+        return redirect('/anggota');
     }
 
     /**
@@ -91,9 +93,9 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, AnggotaModel $anggotaModel, $id)
     {
-         $data = AnggotaModel::find($id)->update($request->all());
-        
-        return redirect('/anggota')->with('success', 'Data has been updated');
+        $data = AnggotaModel::find($id)->update($request->all());
+        Alert::success('Sukses', 'Data berhasil diubah');
+        return redirect('/anggota');
     }
 
     /**
@@ -106,6 +108,7 @@ class AnggotaController extends Controller
     {
         $anggota = AnggotaModel::find($id);
         $anggota->delete();
-        return redirect('/anggota')->with('success', 'Data berhasil dihapus');
+        Alert::success('Sukses', 'Data berhasil dihapus');
+        return redirect('/anggota');
     }
 }

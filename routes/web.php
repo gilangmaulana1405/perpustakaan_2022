@@ -9,6 +9,7 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PinjamBukuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,17 +36,21 @@ Route::middleware(['guest'])->group(function (){
     Route::get('/main-page/galeri', [GaleriController::class, 'index'])->name('galeri');
     Route::get('/main-page/galeri/{id}', [GaleriController::class, 'show'])->name('galeri.show');
     Route::get('/main-page/cari-buku', [CariBukuController::class, 'index']);
+    Route::get('/main-page/cari-buku/search', [CariBukuController::class, 'search'])->name('cari-buku.search');
+
+    Route::post('/main-page/galeri', [PinjamBukuController::class, 'store'])->name('pinjam.buku.store');
 });
 
 Route::middleware(['auth'])->group(function (){
     Route::post('/logout', [LoginController::class, 'logout']);
-
+    
     Route::get('/dashboard', function () {
         return view('dashboard/index', [
             'title' => 'Dashboard',
         ]);
     })->name('dashboard');
-
+    
+    Route::get('/pinjambuku', [PinjamBukuController::class, 'index'])->name('pinjam.buku');
     Route::resource('/peminjaman', PeminjamanController::class);
     Route::resource('/pengembalian', PengembalianController::class);
     Route::resource('/anggota', AnggotaController::class);

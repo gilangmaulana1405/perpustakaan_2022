@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BukuModel;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BukuController extends Controller
 {
@@ -61,7 +62,8 @@ class BukuController extends Controller
             $data->gambar = $request->file('gambar')->getClientOriginalName();
             $data->save();
         }
-        return redirect('/buku')->with('success', 'Data berhasil ditambahkan');
+        Alert::success('Sukses', 'Data berhasil ditambahkan');
+        return redirect('/buku');
     }
 
     /**
@@ -109,7 +111,8 @@ class BukuController extends Controller
         // membuat fungsi delete
         $buku = BukuModel::find($id);
         $buku->delete();
-        return redirect('/buku')->with('success', 'Data has been deleted');
+        Alert::success('Sukses', 'Data berhasil dihapus');
+        return redirect('/buku');
 
     }
 }

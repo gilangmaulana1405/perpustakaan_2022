@@ -5,11 +5,11 @@
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto {{ Request::is('main-page/home') ? 'active' : '' }}" href="/main-page/home">Home</a></li>
-              <li><a class="nav-link scrollto {{ Request::is('main-page/galeri') ? 'active' : '' }}" href="/main-page/galeri">Galeri</a></li>
-              <li><a class="nav-link scrollto {{ Request::is('main-page/cari-buku') ? 'active' : '' }}" href="/main-page/cari-buku">Cari Buku</a></li>
-              <li><a class="nav-link scrollto" href="">Cara Pinjam</a></li>
+              <li><a class="nav-link scrollto {{ Request::is('main-page/galeri') ? 'active' : '' }}" href="/main-page/galeri">Gallery</a></li>
+              <li><a class="nav-link scrollto {{ Request::is('main-page/cari-buku') ? 'active' : '' }}" href="/main-page/cari-buku">Search Book</a></li>
+              <li><a class="nav-link scrollto" href="">How To?</a></li>
               <li class="dropdown">
-                <a href="#"><span>DropDon</span> <i class="bi bi-chevron-down"></i></a>
+                <a href="#"><span>DropDown</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="#">Apa kek 1</a></li>
                   <li class="dropdown">

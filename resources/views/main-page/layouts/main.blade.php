@@ -19,6 +19,8 @@
         @include('main-page.partials.hero')
     <!-- End of Home -->
 
+    @include('sweetalert::alert')
+
     <!-- Vendor JS Files -->
     <script src="{{ asset('vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
