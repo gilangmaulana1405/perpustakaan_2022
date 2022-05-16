@@ -9,8 +9,10 @@ class CariBukuController extends Controller
 {
     public function index()
     {
+        $data = BukuModel::all();
         return view('main-page.cari-buku.index', [
             'title' => 'Cari Buku',
+            'buku' => $data
         ]);
     }
 

@@ -9,18 +9,22 @@
   </div>
   <div class="row justify-content-center">
     @if($data)
-        @foreach($data as $buku)
-        <div class="col-3">
-                <div class="card" style="width:250px;">
-                    <img class="card-img-top" src="{{ asset('img/'. $buku->gambar) }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $buku->judul }}</h5>
-                        <p class="card-text">{{ $buku->kategori }}</p>
-                        <button type="button" data-toggle="modal" data-target="#modalAdd" class="btn btn-primary">Pinjam</button>
+        @foreach($data as $bk)
+        <div class="col-lg-3 col-md-6 portfolio-item filter-app mb-3">
+              <a href="{{ route('galeri.show', $bk->id) }}" class="img-link">
+                <img src="{{ asset('img/'. $bk->gambar) }}" width="259px" height="400px" class="img-fluid mb-4" alt="" />
+                <div class="portfolio-info">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="d-flex justify-content-end">
+                      <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm" style="display: none"><i class="fa fa-eye"></i></a>
                     </div>
+                  <h4 class="mb-2">{{ $bk->judul }}</h4>
+                  <p class="mb-2">{{ $bk->kategori }}</p>
+                  </div>
                 </div>
-            </div>
-        </div>
+                </div>
+              </div>
         @endforeach
     @endif
 </div>

@@ -15,7 +15,7 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <title>Rak buku</title>
+    <title>Gallery</title>
   </head>
   <body>
     <main id="main">
@@ -28,9 +28,9 @@
         <div class="container" data-aos="fade-up">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="section-title">Gallery Book</h3>
-              <div class="section-title-divider"></div>
-              <p class="section-description">It's all books that what you want.. buy right now!</p>
+              <h3 class="title-page">Portofolio Books</h3>
+              <div class="section-title-page"></div>
+              <p class="description">Find amazing books to improve your skills and knowledge</p>
             </div>
           </div>
 
@@ -45,25 +45,24 @@
             </div>
           </div>
 
-          <div class="row portfolio-container">
-          @foreach($buku as $bk)
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <img src="{{ asset('img/'. $bk->gambar) }}" width="259px" height="400px" class="img-fluid" alt="" />
-              <div class="portfolio-info">
-              <div class="row">
-                <div class="col-9">
-                  <div class="d-flex justify-content-end">
-                    <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+         <div class="row portfolio-container">
+            @foreach($buku as $bk)
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app mb-3">
+              <a href="{{ route('galeri.show', $bk->id) }}" class="img-link">
+                <img src="{{ asset('img/'. $bk->gambar) }}" width="259px" height="400px" class="img-fluid mb-4" alt="" />
+                <div class="portfolio-info">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="d-flex justify-content-end">
+                      <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm" style="display: none"><i class="fa fa-eye"></i></a>
+                    </div>
+                  <h4 class="mb-2">{{ $bk->judul }}</h4>
+                  <p class="mb-2">{{ $bk->kategori }}</p>
                   </div>
-                <h4>{{ $bk->judul }}</h4>
-                <p>{{ $bk->kategori }}</p>
+                </div>
                 </div>
               </div>
-                 <button type="button" data-toggle="modal" data-target="#modalAdd" class="btn btn-primary">Pinjam</button>
-                 <a class="btn btn-success" href="/main-page/galeri/create/{{ $bk->id }}">Ambil</a>
-              </div>
-            </div>
-            @endforeach()
+              @endforeach()
           </div>
         </div>
       </section>
@@ -71,7 +70,7 @@
     </main>
 
     <!-- Modal -->
-<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog">
+{{-- <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -112,9 +111,13 @@
         </div>
         </form>
     </div>
-</div>
+</div> --}}
 
     @include('sweetalert::alert')
+
+    <!-- Footer -->
+    @include('main-page.partials.footer')
+  
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

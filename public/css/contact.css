@@ -1,0 +1,163 @@
+#contactus{
+    min-height: 100vh;
+    background: #eeeee4;
+}
+
+.contactAll{
+    position: relative;
+    width: 100%;
+    padding: 80px 0px;
+}
+
+.contactAll .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactAll .title h2{
+    font-weight: 500;
+    
+}
+
+.contact-box{
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 5fr 4fr;
+    grid-template-areas: 
+    "form info"
+    "form map";
+    grid-gap: 10px;
+    
+}
+
+.form{
+    grid-area: form;
+}
+
+.info{
+    grid-area:info;
+}
+
+.map{
+    grid-area:map;
+}
+
+.contact{
+    
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+}
+.form h3{
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.info h3{
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.input-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-row .input-group{
+    flex-basis: 45%;
+}
+
+input{
+    width: 100%;
+    border: 1px solid #333;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+textarea{
+    width:100%;
+    border: 1px solid #333;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+label{
+    margin-bottom: 6px;
+    display: block;
+    color: black;
+}
+
+tr td:first-child{
+    padding-right: 20px;
+}
+
+tr td{
+    padding-top: 10px;
+}
+.social-icons{
+    
+    display: flex;
+    margin-top: 10px;
+}
+.social-icons a{
+    
+    width: 35px;
+    height: 35px;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 18px;
+    transition: 0.2s;
+
+
+}
+
+.map{
+    padding: 0;
+}
+.map iframe{
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 991px)
+{
+    .contactAll{
+        padding: 20px;
+    }
+    .box{
+        position: relative;
+        display: grid;
+        grid-template-columns:  1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "form"
+        "info"
+        "map";
+        
+    }
+    .map{
+        min-height: 300px;
+    }
+    .input-row{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        margin-bottom: 10px;
+    }
+    .input-group{
+        margin-bottom: 20px;
+    }
+    input{
+        padding-bottom: 20px;
+    }
+    
+}
+

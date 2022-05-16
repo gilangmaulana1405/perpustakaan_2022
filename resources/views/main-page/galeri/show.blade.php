@@ -23,32 +23,35 @@
         @include('main-page.partials.header')
       <!-- End Of Header -->
 
-    <section id="portofolio">
-        <div class="container">
-            <div class="row portfolio-container">
-                <div class="col-lg-12">
-                    <div class="card mt-5" style="max-width: 580px;">
-                        <div class="row no-gutters">
-                                @foreach($buku as $data) 
-                                <div class="col-md-4">
-                                <img src="{{ asset('img/'. $data->gambar) }}" class="card-img">
-                                </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $data->judul }}</h5>
-                                <h6 class="card-subtitle mb-3 text-muted">{{ $data->kategori }}</h6>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, id! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem esse explicabo, vel rerum illum voluptate, Libero magnam, molestiae debitis iste hic sed? amet velit.</p>
-                                {{-- <p class="card-text"><small class="text-muted">Bergabung sejak {{ showDateTime($data->created_at, 'l, d F Y') }}</small></p> --}}
-                                @endforeach()
-                            <a href="/main-page/galeri" class="btn btn-primary btn-sm">Kembali</a>
-                            </div>
-                            </div>
-                        </div>
-                </div>
-                </div>
-            </div>
+     <section id="bookdetails" class="container">
+        <div class="bookall">
+          <div class="title">
+            <h3>Detail Buku</h3>
+          </div>
+        <div class="box">
+          <div class="book cover">
+           @foreach($buku as $data) 
+            <img src="{{ asset('img/'. $data->gambar) }}">
+          </div>
+          <div class="book detail">
+            <h4 class="mb-5">{{ $data->judul }}</h4>
+            <h6 class="mb-5">Kategori: {{ $data->kategori }}</h6>
+            <h6 class="mb-5">Penulis: {{ $data->penulis }}</h6>
+            <h6 class="mb-5">Penerbit: {{ $data->penerbit }}</h6>
+            <h6 class="mb-2">Deskripsi</h6>
+            <p class="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus,
+               sed. Repellat recusandae rerum officia animi dolorum ullam magnam, rem sapient
+               e sint consequuntur? Nostrum exercitationem, perferendis architecto sit repellat qui
+               s voluptate laborum debitis hic dicta voluptatibus accusantium voluptas. Odit, possim
+               us. Quas?
+              </p>
+            <a href="/main-page/galeri" class="btn btn-primary btn-sm">Kembali</a>
+            <a class="btn btn-success btn-sm" href="/main-page/galeri/create/{{ $data->id }}">Pinjam</a>
+          </div>
+          @endforeach()
         </div>
-    </section>
+        </div>
+      </section>
 </main>
     <script src="{{ asset('js/main.js') }}"></script>
   </body>

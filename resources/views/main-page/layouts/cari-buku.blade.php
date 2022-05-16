@@ -15,7 +15,7 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <title>Rak buku</title>
+    <title>Search Book</title>
   </head>
   <body>
     <main id="main">

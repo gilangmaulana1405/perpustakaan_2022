@@ -10,6 +10,8 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PinjamBukuController;
+use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\KontakController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +41,8 @@ Route::middleware(['guest'])->group(function (){
     Route::get('/main-page/cari-buku/search', [CariBukuController::class, 'search'])->name('cari-buku.search');
     Route::post('/main-page/galeri', [PinjamBukuController::class, 'store'])->name('pinjam.buku.store');
     Route::get('/main-page/galeri/create/{id}', [PinjamBukuController::class, 'create']);
+    Route::get('/main-page/tutorial', [TutorialController::class, 'index']);
+    Route::get('/main-page/kontak', [KontakController::class, 'index']);
 });
 
 Route::middleware(['auth'])->group(function (){

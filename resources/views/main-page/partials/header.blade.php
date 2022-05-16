@@ -7,28 +7,11 @@
               <li><a class="nav-link scrollto {{ Request::is('main-page/home') ? 'active' : '' }}" href="/main-page/home">Home</a></li>
               <li><a class="nav-link scrollto {{ Request::is('main-page/galeri') ? 'active' : '' }}" href="/main-page/galeri">Gallery</a></li>
               <li><a class="nav-link scrollto {{ Request::is('main-page/cari-buku') ? 'active' : '' }}" href="/main-page/cari-buku">Search Book</a></li>
-              <li><a class="nav-link scrollto" href="">How To?</a></li>
-              <li class="dropdown">
-                <a href="#"><span>DropDown</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="#">Apa kek 1</a></li>
-                  <li class="dropdown">
-                    <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                    <ul>
-                      <li><a href="#">Info 1</a></li>
-                      <li><a href="#">Info 2</a></li>
-                      <li><a href="#">Info 3</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Drop Down 2</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
-                </ul>
-              </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto {{ Request::is('main-page/tutorial') ? 'active' : '' }}" href="/main-page/tutorial">How To Borrow</a></li>
+              <li><a class="nav-link scrollto {{ Request::is('main-page/kontak') ? 'active' : '' }}" href="/main-page/kontak">Contact</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>
           <!-- End of navbar -->
         </div>
-      </header>
+  </header>
