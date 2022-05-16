@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $buku->judul }}</h5>
                         <p class="card-text">{{ $buku->kategori }}</p>
-                        <button type="button"  data-toggle="modal" data-target="#modalAdd" class="btn btn-primary">Pinjam</button>
+                        <button type="button" data-toggle="modal" data-target="#modalAdd" class="btn btn-primary">Pinjam</button>
                     </div>
                 </div>
             </div>
@@ -61,9 +61,9 @@
                 <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam" placeholder="Tanggal Pinjam Buku" required>
             </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer">        
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary" data-title="">Save changes</button>
         </div>
         </form>
     </div>

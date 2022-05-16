@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-book"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Perpustakaan <sub>4C</sub></div>
+                <div class="sidebar-brand-text mx-3">Library <sup>4C</s></div>
             </a>
 
             <!-- Divider -->
@@ -30,17 +30,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Peminjaman Ditempat</span></a>
+                    <span>On-site Borrowing</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pinjam.buku') }}">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Pinjam Buku Online</span></a>
+                    <span>On-line Borrowing</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/pengembalian">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Pengembalian</span></a>
+                    <span>Return Book</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -53,8 +53,8 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">All Data:</h6>
-                        <a class="collapse-item" href="/anggota">Anggota</a>
-                        <a class="collapse-item" href="/buku">Buku</a>
+                        <a class="collapse-item" href="/anggota">Members</a>
+                        <a class="collapse-item" href="/buku">Books</a>
                     </div>
                 </div>
             </li>

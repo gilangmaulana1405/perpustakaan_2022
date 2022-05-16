@@ -12,7 +12,7 @@
             <form method="post" action="/pengembalian">
             @csrf
                 <div class="form-group">
-                    <label for="nama_anggota">Nama Anggota</label>
+                    <label for="nama_anggota">Member Name</label>
                     <select class="form-control" name="anggota_id">
                          @foreach($nama_anggota as $anggota)
                             <option value="{{ $anggota->id }}">{{ $anggota->nama_anggota }}</option>
@@ -20,7 +20,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="buku">Judul Buku</label>
+                    <label for="buku">Book Title</label>
                     <select class="form-control" name="buku_id">
                          @foreach($buku as $bk)
                             <option value="{{ $bk->id }}">{{ $bk->judul }}</option>
@@ -28,7 +28,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="buku">Kategori</label>
+                    <label for="buku">Category</label>
                     <select class="form-control" name="buku_id">
                          @foreach($buku as $bk)
                             <option value="{{ $bk->id }}">{{ $bk->kategori }}</option>
@@ -36,7 +36,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="buku">Penulis</label>
+                    <label for="buku">Writer</label>
                     <select class="form-control" name="buku_id">
                          @foreach($buku as $bk)
                             <option value="{{ $bk->id }}">{{ $bk->penulis }}</option>
@@ -44,7 +44,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="buku">Penerbit</label>
+                    <label for="buku">Publisher</label>
                     <select class="form-control" name="buku_id">
                          @foreach($buku as $bk)
                             <option value="{{ $bk->id }}">{{ $bk->penerbit }}</option>
@@ -52,7 +52,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="buku">Tahun Terbit</label>
+                    <label for="buku">Publish Year</label>
                     <select class="form-control" name="buku_id">
                          @foreach($buku as $bk)
                             <option value="{{ $bk->id }}">{{ $bk->tahun_terbit }}</option>
@@ -60,7 +60,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="peminjaman">Tanggal Peminjaman</label>
+                    <label for="peminjaman">Borrow Date</label>
                     <select class="form-control" name="peminjaman_id">
                          @foreach($peminjaman as $pinjam)
                             <option value="{{ $pinjam->id }}">{{ $pinjam->tanggal_pinjam }}</option>
@@ -68,7 +68,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_kembali">Tanggal Kembali</label>
+                    <label for="tanggal_kembali">Return Date</label>
                     <input type="date" class="form-control @error('tanggal_kembali') is-invalid @enderror" id="tanggal_kembali" name="tanggal_kembali" placeholder="Tanggal Kembali" value="{{ old('tanggal_kembali') }}">
                     @error('tanggal_kembali')
                         <div class="invalid-feedback">
@@ -77,7 +77,7 @@
                     @enderror
                 </div>
                
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Add Data</button>
             </form>
         </div>
      </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BukuModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BukuController extends Controller
@@ -83,9 +84,13 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(BukuModel $bukuModel)
+    public function edit(BukuModel $bukuModel, $id)
     {
-        //
+        $buku = BukuModel::find($id);
+        return view('buku.edit', [
+            'title' => 'Edit Data Buku',
+            'buku' => $buku
+        ]);
     }
 
     /**
@@ -95,9 +100,34 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BukuModel $bukuModel)
+    public function update(Request $request, BukuModel $bukuModel, $id)
     {
-        //
+        
+        $data = BukuModel::find($id);
+        $data->judul = $request->input('judul');
+        $data->kategori = $request->input('kategori');
+        $data->penulis = $request->input('penulis');
+        $data->penerbit = $request->input('penerbit');
+        $data->tahun_terbit = $request->input('tahun_terbit');
+        $data->jumlah_buku = $request->input('jumlah_buku');
+
+        if($request->hasFile('gambar')){
+            $destination = 'img/'. $request->gambar;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $request->file('gambar');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'. $extension;
+            $file->move('img/', $filename);
+            $data->gambar = $filename;
+
+        }
+
+        $data->update();
+
+        Alert::success('Sukses', 'Data berhasil diubah');
+        return redirect('/buku');
     }
 
     /**

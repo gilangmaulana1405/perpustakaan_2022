@@ -37,8 +37,8 @@ Route::middleware(['guest'])->group(function (){
     Route::get('/main-page/galeri/{id}', [GaleriController::class, 'show'])->name('galeri.show');
     Route::get('/main-page/cari-buku', [CariBukuController::class, 'index']);
     Route::get('/main-page/cari-buku/search', [CariBukuController::class, 'search'])->name('cari-buku.search');
-
     Route::post('/main-page/galeri', [PinjamBukuController::class, 'store'])->name('pinjam.buku.store');
+    Route::get('/main-page/galeri/create/{id}', [PinjamBukuController::class, 'create']);
 });
 
 Route::middleware(['auth'])->group(function (){

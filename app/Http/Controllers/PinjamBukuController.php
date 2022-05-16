@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PinjamBukuModel;
+use App\Models\BukuModel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PinjamBukuController extends Controller
@@ -17,9 +18,18 @@ class PinjamBukuController extends Controller
         ]);
     }
 
+    public function create($id)
+    {
+        $data = BukuModel::find($id);
+        
+        return view('main-page.galeri.create', [
+            'title' => 'Tambah Data Pinjam Buku',
+            'buku' => $data
+        ]);
+    }
+
     public function store(Request $request)
     {
-
         $request->validate([
             'nama_lengkap' => 'required',
             'judul_buku' => 'required',

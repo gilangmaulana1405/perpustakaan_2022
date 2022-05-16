@@ -28,11 +28,11 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Anggota</th>
-                                            <th>Kelas</th>
-                                            <th>Jurusan</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Alamat</th>
+                                            <th>Member Name</th>
+                                            <th>Class</th>
+                                            <th>Major</th>
+                                            <th>Gender</th>
+                                            <th>Address</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

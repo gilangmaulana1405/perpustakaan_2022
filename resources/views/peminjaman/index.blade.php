@@ -28,13 +28,13 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Anggota</th>
-                                            <th>Judul Buku</th>
-                                            <th>Kategori</th>
-                                            <th>Penulis</th>
-                                            <th>Penerbit</th>
-                                            <th>Tahun Terbit</th>
-                                            <th>Tanggal Peminjaman</th>
+                                            <th>Member Name</th>
+                                            <th>Book Title</th>
+                                            <th>Category</th>
+                                            <th>Writer</th>
+                                            <th>Publisher</th>
+                                            <th>Publish Year</th>
+                                            <th>Borrow Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

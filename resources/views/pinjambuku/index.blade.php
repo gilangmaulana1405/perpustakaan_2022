@@ -27,11 +27,11 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Lengkap</th>
-                                            <th>Judul Buku</th>
-                                            <th>Kategori</th>
-                                            <th>Jumlah Pinjam</th>
-                                            <th>Tanggal Peminjaman</th>
+                                            <th>Full Name</th>
+                                            <th>Title Book</th>
+                                            <th>Category</th>
+                                            <th>Borrow Amount</th>
+                                            <th>Borrow Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action="/peminjaman/{{ $data->id }}" method="post" class="d-inline">
+                    <form action="/pinjambuku/{{ $data->id }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
                         <button class="btn btn-danger">Delete</button>
