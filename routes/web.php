@@ -43,6 +43,7 @@ Route::middleware(['guest'])->group(function (){
     Route::get('/main-page/galeri/create/{id}', [PinjamBukuController::class, 'create']);
     Route::get('/main-page/tutorial', [TutorialController::class, 'index']);
     Route::get('/main-page/kontak', [KontakController::class, 'index']);
+    Route::post('/main-page/kontak', [KontakController::class, 'store'])->name('kontak.store');
 });
 
 Route::middleware(['auth'])->group(function (){

@@ -9,34 +9,58 @@
                 <div class="contact-box">
                     <div class="contact form">
                         <h3>Send message to us</h3>
-                        <form action="">
+                        <form action="{{ route('kontak.store') }}" method="post">
+                        @csrf
                             <div class="input-row">
                                 <div class="input-group">
                                     <label for="">Name</label>
-                                    <input type="text">
+                                    <input type="text" class="@error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="input-group">
                                     <label for="">Phone</label>
-                                    <input type="text">
+                                    <input type="text" class="@error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                                
-                                
                             </div>
                             <div class="input-row">
                                 <div class="input-group">
                                     <label for="">Email</label>
-                                    <input type="email">
+                                    <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="input-group">
                                     <label for="">Subject</label>
-                                    <input type="text">
+                                    <input type="text" name="subject" class="@error('subject') is-invalid @enderror" id="subject" placeholder="Pesan Kebersihan" value="{{ old('subject') }}">
+                                    @error('subject')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
-                            <label for="">message</label>
-                            <textarea rows="5"></textarea>
-                            <button type="submit" class = "btn-primary">SEND</button>
-                        </form>
+                            <label for="">Message</label>
+                            <textarea rows="5" name="message" id="message" class="@error('message') is-invalid @enderror" value="{{ old('message') }}"></textarea>
+                                @error('message')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}  
+                                    </div>
+                                @enderror
 
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
                     </div>
                     <div class="contact info">
                         <h3>Info contact</h3>
