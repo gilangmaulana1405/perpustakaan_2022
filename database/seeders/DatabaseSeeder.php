@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\PeminjamanModel;
-use App\Models\PengembalianModel;
 use App\Models\AnggotaModel;
 use App\Models\BukuModel;
 use App\Models\User;
@@ -21,7 +20,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         PeminjamanModel::factory(10)->create();
-        PengembalianModel::factory(5)->create();
         AnggotaModel::factory(10)->create();
         BukuModel::factory(5)->create();
         User::factory(5)->create();

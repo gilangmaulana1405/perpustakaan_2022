@@ -13,7 +13,7 @@
         <div class="col-lg-6">
             <form method="post" action="/buku" enctype="multipart/form-data">
             @csrf
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="judul">Judul Buku</label>
                     <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" placeholder="Judul Buku" value="{{ old('judul') }}">
                     @error('judul')

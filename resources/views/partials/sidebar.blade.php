@@ -27,11 +27,11 @@
                 Interface
             </div>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
                     <i class="fas fa-fw fa-book"></i>
                     <span>On-site Borrowing</span></a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pinjam.buku') }}">
                     <i class="fas fa-fw fa-book"></i>

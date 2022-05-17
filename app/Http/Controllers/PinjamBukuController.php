@@ -43,4 +43,27 @@ class PinjamBukuController extends Controller
         return redirect('/main-page/galeri');
 
     }
+
+    public function edit(Request $request, $id)
+    {
+        $pinjambuku = PinjamBukuModel::find($id);
+        return view('pinjambuku.edit', [
+            'title' => 'Edit Pinjma Buku',
+            'pinjambuku' => $pinjambuku
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $pinjambuku = PinjamBukuModel::find($id)->update($request->all());
+        Alert::success('Sukses', 'Data berhasil diubah');
+        return redirect('/pinjambuku');
+    }
+
+    public function destroy($id)
+    {
+        PinjamBukuModel::find($id)->delete();
+        Alert::success('Sukses', 'Data berhasil dihapus');
+        return redirect('/pinjambuku');
+    }
 }

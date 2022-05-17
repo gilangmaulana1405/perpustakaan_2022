@@ -14,73 +14,79 @@
             <form method="post" action="/pengembalian/{{ $pengembalian->id }}">
            @method('PUT')
            @csrf
-                <div class="form-group">
-                    <label for="nama_anggota">Member Name</label>
-                    <select class="form-control" name="anggota_id">
-                        @foreach($nama_anggota as $anggota)
-                            <option value="{{ $anggota->id }}" {{ old('anggota_id', $pengembalian->anggota_id) == $anggota->id ? 'selected' : '' }}>{{ $anggota->nama_anggota }}</option>
-                        @endforeach()
-                    </select>
-                </div>
-
                  <div class="form-group">
-                    <label for="buku">Publish Year</label>
-                    <select class="form-control" name="buku_id">
-                         @foreach($buku as $bk)
-                            <option value="{{ $bk->id }}" {{ old('buku_id', $pengembalian->buku_id) == $bk->id ? 'selected' : '' }} >{{ $bk->tahun_terbit }}</option>
-                        @endforeach()
-                    </select>
+                    <label for="nama_anggota">Member Name</label>
+                    <input type="text" class="form-control @error('nama_anggota') is-invalid @enderror" id="nama_anggota" name="nama_anggota" placeholder="Member Name" value="{{ old('nama_anggota', $pengembalian->nama_anggota) }}">
+                    @error('nama_anggota')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="buku">Book Title</label>
-                    <select class="form-control" name="buku_id" disabled>
-                         @foreach($buku as $bk)
-                            <option value="{{ $bk->id }}" {{ old('buku_id', $pengembalian->buku_id) == $bk->id ? 'selected' : '' }} >{{ $bk->judul }}</option>
-                        @endforeach()
-                    </select>
+                    <label for="judul_buku">Book Title</label>
+                    <input type="text" class="form-control @error('judul_buku') is-invalid @enderror" id="judul_buku" name="judul_buku" placeholder="Book Title" value="{{ old('judul_buku', $pengembalian->judul_buku) }}">
+                    @error('judul_buku')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="buku">Category</label>
-                    <select class="form-control" name="buku_id" disabled>
-                         @foreach($buku as $bk)
-                            <option value="{{ $bk->id }}" {{ old('buku_id', $pengembalian->buku_id) == $bk->id ? 'selected' : '' }} >{{ $bk->kategori }}</option>
-                        @endforeach()
-                    </select>
+                    <label for="kategori">Category</label>
+                    <input type="text" class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" placeholder="Category" value="{{ old('kategori', $pengembalian->kategori) }}">
+                    @error('kategori')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="buku">Writer</label>
-                    <select class="form-control" name="buku_id" disabled>
-                         @foreach($buku as $bk)
-                            <option value="{{ $bk->id }}" {{ old('buku_id', $pengembalian->buku_id) == $bk->id ? 'selected' : '' }} >{{ $bk->penulis }}</option>
-                        @endforeach()
-                    </select>
+                    <label for="penulis">Writer</label>
+                    <input type="text" class="form-control @error('penulis') is-invalid @enderror" id="penulis" name="penulis" placeholder="Writer" value="{{ old('penulis', $pengembalian->penulis) }}">
+                    @error('penulis')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="buku">Penerbit</label>
-                    <select class="form-control" name="buku_id" disabled>
-                         @foreach($buku as $bk)
-                            <option value="{{ $bk->id }}" {{ old('buku_id', $pengembalian->buku_id) == $bk->id ? 'selected' : '' }} >{{ $bk->penerbit }}</option>
-                        @endforeach()
-                    </select>
+                    <label for="penerbit">Publisher</label>
+                    <input type="text" class="form-control @error('penerbit') is-invalid @enderror" id="penerbit" name="penerbit" placeholder="Publisher" value="{{ old('penerbit', $pengembalian->penerbit) }}">
+                    @error('penerbit')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="tahun_terbit">Publish Year</label>
+                    <input type="numeric" class="form-control @error('tahun_terbit') is-invalid @enderror" id="tahun_terbit" name="tahun_terbit" placeholder="Publish Year" value="{{ old('tahun_terbit', $pengembalian->tahun_terbit) }}">
+                    @error('tahun_terbit')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="tanggal_pinjam">Borrow Date</label>
-                    <select class="form-control" name="peminjaman_id" disabled>
-                         @foreach($peminjaman as $pinjam)
-                            <option value="{{ $pinjam->id }}" {{ old('peminjaman_id', $pengembalian->peminjaman_id) == $pinjam->id ? 'selected' : '' }} >{{ $pinjam->tanggal_pinjam }}</option>
-                        @endforeach()
-                    </select>
+                    <input type="date" class="form-control @error('tanggal_pinjam') is-invalid @enderror" id="tanggal_pinjam" name="tanggal_pinjam" placeholder="Borrow Date" value="{{ old('tanggal_pinjam', $pengembalian->tanggal_pinjam) }}">
+                    @error('tanggal_pinjam')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="tanggal_kembali">Return Date</label>
-                    <input type="date" class="form-control @error('tanggal_kembali') is-invalid @enderror" id="tanggal_kembali" name="tanggal_kembali" placeholder="Tanggal Kembali" value="{{ old('tanggal_kembali', $pengembalian->tanggal_kembali) }}">
+                    <input type="date" class="form-control @error('tanggal_kembali') is-invalid @enderror" id="tanggal_kembali" name="tanggal_kembali" placeholder="Return Date" value="{{ old('tanggal_kembali', $pengembalian->tanggal_kembali) }}">
                     @error('tanggal_kembali')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
-               
+
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>

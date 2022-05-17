@@ -46,10 +46,14 @@
                                             <td>{{ $data->jenis_kelamin }}</td>
                                             <td>{{ $data->alamat }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                                <a href="/anggota/{{ $data->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm" onclick="handleDelete()"><i class="fa fa-trash"></i>
-                                                </a>
+                                                <a href="#" class="btn btn-success btn-md mt-2">Detail</a>
+                                                <a href="/anggota/{{ $data->id }}/edit" class="btn btn-warning btn-md mt-3">Edit</a>
+                                                <form action="/anggota/{{ $data->id }}" method="post" class="d-inline">
+                                                        @method('delete')
+                                                        @csrf
+                                                <button class="btn btn-danger btn-md" onclick="return confirm('Are you sure you want to delete this data?')">Delete
+                                                </button>
+                                                </form>
                                             </td>
                                         </tr> 
                                         @endforeach
@@ -58,6 +62,7 @@
                             </div>
                         </div>
                     </div>
+@endsection
 
     {{-- Modal Add --}}
      {{-- <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog">
@@ -154,7 +159,7 @@
     </div> --}}
 
     {{-- Modal Delete --}}
-    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
+    {{-- <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -168,19 +173,14 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action="/anggota/{{ $data->id }}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
+                    <button class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    </div> --}}
 
-<script>
+{{-- <script>
     function handleDelete(){
         $('#modalDelete').modal('show');
     }
-</script>
+</script> --}}

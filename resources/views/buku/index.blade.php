@@ -54,8 +54,12 @@
                                             <td>
                                                 <a href="#" class="btn btn-success btn-md mt-2">Detail</a>
                                                 <a href="/buku/{{ $data->id }}/edit" class="btn mt-3 btn-warning btn-md">Edit</a>
-                                                <button class="btn btn-danger btn-md" onclick="handleDelete()">Delete
+                                                <form action="/buku/{{ $data->id }}" method="post" class="d-inline">
+                                                        @method('delete')
+                                                        @csrf
+                                                <button class="btn btn-danger btn-md" onclick="return confirm('Are you sure you want to delete this data?')">Delete
                                                 </button>
+                                                </form>
                                             </form>
                                             </td>
                                         </tr> 
@@ -64,37 +68,5 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-
-    {{-- Modal Delete --}}
-     <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure want to delete this data?</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action="/buku/{{ $data->id }}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div>  
 @endsection
-
-<script>
-    function handleDelete()
-    {
-        $('#modalDelete').modal('show');
-    }
-</script>

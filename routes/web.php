@@ -56,6 +56,10 @@ Route::middleware(['auth'])->group(function (){
     })->name('dashboard');
     
     Route::get('/pinjambuku', [PinjamBukuController::class, 'index'])->name('pinjam.buku');
+    Route::get('/pinjambuku/{id}', [PinjamBukuController::class, 'edit'])->name('pinjam.buku.edit');
+    Route::put('/pinjambuku/{id}', [PinjamBukuController::class, 'update'])->name('pinjam.buku.update');
+    Route::delete('/pinjambuku/{id}', [PinjamBukuController::class, 'destroy'])->name('pinjam.buku.destroy');
+
     Route::resource('/peminjaman', PeminjamanController::class);
     Route::resource('/pengembalian', PengembalianController::class);
     Route::resource('/anggota', AnggotaController::class);

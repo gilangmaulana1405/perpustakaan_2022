@@ -33,15 +33,8 @@ class PengembalianController extends Controller
      */
     public function create()
     {
-        $peminjaman = PeminjamanModel::all();
-        $nama_anggota = AnggotaModel::all();
-        $buku = BukuModel::all();
-
         return view('pengembalian.create', [
-            'title' => 'Tambah Data Pengembalian',
-            'peminjaman' => $peminjaman,
-            'nama_anggota' => $nama_anggota,
-            'buku' => $buku
+            'title' => 'Tambah Data Pengembalian'
         ]);
     }
 
@@ -53,25 +46,18 @@ class PengembalianController extends Controller
      */
     public function store(Request $request, Validator $validator)
     {
-        // dd($request->all());
-        $validator = Validator::make($request->all(), [
+        $request->validate([
+            'nama_anggota' => 'required|max:255',
+            'judul_buku' => 'required',
+            'kategori' => 'required',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required|numeric',
+            'tanggal_pinjam' => 'required',
             'tanggal_kembali' => 'required'
         ]);
 
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator->errors());        
-        }
-
-        $validated = $validator->validated();
-
-        $validated = [
-            'peminjaman_id' => $request->peminjaman_id,
-            'anggota_id' => $request->anggota_id,
-            'buku_id' => $request->buku_id,
-            'tanggal_kembali' => $request->tanggal_kembali,
-        ];
-
-        PengembalianModel::create($validated);
+        PengembalianModel::create($request->all());
         Alert::success('Sukses', 'Data berhasil ditambahkan');
         return redirect('/pengembalian');
     }
@@ -96,15 +82,9 @@ class PengembalianController extends Controller
     public function edit(PengembalianModel $pengembalianModel, $id)
     {
         $pengembalian = PengembalianModel::find($id);
-        $peminjaman = PeminjamanModel::all();
-        $anggota = AnggotaModel::all();
-        $buku = BukuModel::all();
         return view('pengembalian.edit', [
             'title' => 'Edit Data Pengembalian',
-            'pengembalian' => $pengembalian,
-            'peminjaman' => $peminjaman,
-            'nama_anggota' => $anggota,
-            'buku' => $buku
+            'pengembalian' => $pengembalian
         ]);
     }
 
