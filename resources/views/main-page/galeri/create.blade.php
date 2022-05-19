@@ -31,7 +31,7 @@
             </div>
 
             <div class="col-6">
-                <form action="{{ route('pinjam.buku.store') }}" method="post">
+                <form action="{{ route('pinjam.buku.store', $buku->id) }}" method="POST">
                 @csrf
                     {{-- <div class="form-group mb-3">
                         <label for="nama_lengkap">Nama Lengkap</label>
@@ -44,7 +44,7 @@
                     </div> --}}
                     <div class="form-group mb-3">
                         <label for="nama_lengkap">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap" required>
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ old('nama_lengkap', $buku->nama_lengkap) }}" placeholder="Nama Lengkap" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="judul_buku">Judul Buku</label>
@@ -56,7 +56,11 @@
                     </div>
                      <div class="form-group mb-3">
                         <label for="jumlah_pinjam">Jumlah Pinjam</label>
-                        <input type="numeric" class="form-control" id="jumlah_pinjam" name="jumlah_pinjam" placeholder="Jumlah Pinjam Buku" required>
+                        <input type="numeric" class="form-control" id="jumlah_pinjam" name="jumlah_pinjam" value="{{ old('jumlah_pinjam', $buku->jumlah_pinjam) }}" placeholder="Jumlah Pinjam Buku" required>
+                    </div>
+                     <div class="form-group mb-3">
+                        <label for="tanggal_pinjam">Tanggal Pinjam</label>
+                        <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam" required>
                     </div>
                     {{-- <div class="form-group mb-3">
                         <label for="jumlah_pinjam">Jumlah Pinjam</label>
@@ -67,15 +71,7 @@
                             </div>
                         @enderror
                     </div> --}}
-                    <div class="form-group mb-3">
-                        <label for="tanggal_pinjam">Tanggal Pinjam</label>
-                        <input type="date" class="form-control @error('tanggal_pinjam') is-invalid @enderror" id="tanggal_pinjam" name="tanggal_pinjam">
-                        @error('tanggal_pinjam')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+                   
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
