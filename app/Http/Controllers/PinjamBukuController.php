@@ -39,7 +39,7 @@ class PinjamBukuController extends Controller
         ]);
 
         $data = PinjamBukuModel::create($request->all());
-        return redirect('/main-page/galeri/invoice/'. $data->id)->with('Berhasil', 'Data berhasil ditambahkan');
+        return redirect('/main-page/galeri/invoice/'. $data->id)->with('success', 'Data berhasil ditambahkan');
     }
 
     public function invoice($id)

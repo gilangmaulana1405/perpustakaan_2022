@@ -3,10 +3,16 @@
 
 <section class="book-search text-center">
     <div class="container">  
-        <form action="{{ route('cari-buku.search') }}" method="get">
-            <input type="search" name="search" placeholder="Enter book title.." required>
-             <button class="input-group-text btn btn-primary btn-lg" id="basic-addon2"><i class="fa fa-search fa-solid fa-md" border="0"></i></button>
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <form action="/main-page/cari-buku/search" method="get">
+           <div class="mb-3">
+              <input type="search" name="search" class="form-control" placeholder="Enter book title.." required>
+              {{-- <button class="input-group-text btn btn-primary btn-md" id="basic-addon2"><i class="fa fa-search fa-solid fa-md" border="0"></i></button> --}}
+            </div>
         </form>
+        </div>
+      </div>
     </div>
 </section>
 

@@ -39,11 +39,12 @@ Route::middleware(['guest'])->group(function (){
     Route::get('/main-page/galeri/{id}', [GaleriController::class, 'show'])->name('galeri.show');
     Route::get('/main-page/galeri/create/{id}', [PinjamBukuController::class, 'create']);
 
-    Route::post('/main-page/galeri/invoice/{id}', [PinjamBukuController::class, 'store'])->name('pinjam.buku.store');
+    Route::post('/main-page/galeri/', [PinjamBukuController::class, 'store'])->name('pinjam.buku.store');
     Route::get('/main-page/galeri/invoice/{id}', [PinjamBukuController::class, 'invoice'])->name('pinjam.buku.invoice');
 
     Route::get('/main-page/cari-buku', [CariBukuController::class, 'index']);
     Route::get('/main-page/cari-buku/search', [CariBukuController::class, 'search'])->name('cari-buku.search');
+
     Route::get('/main-page/tutorial', [TutorialController::class, 'index']);
     Route::get('/main-page/kontak', [KontakController::class, 'index']);
     Route::post('/main-page/kontak', [KontakController::class, 'store'])->name('kontak.store');

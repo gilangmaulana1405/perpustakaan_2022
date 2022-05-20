@@ -14,6 +14,15 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-7">
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Sukses!</strong> {{ session('success') }}.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif()
+            </div>
+                
+            <div class="col-7">
               <div class="card text-center">
                 <div class="card-header">
                     Bukti Pinjam Buku

@@ -26,43 +26,35 @@
       <!-- Ini Galeri -->
       <section id="portfolio">
         <div class="container" data-aos="fade-up">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="title-page">Portofolio Books</h3>
-              <div class="section-title-page"></div>
-              <p class="description">Find amazing books to improve your skills and knowledge</p>
+            <div class="row">
+              <img src="{{ asset('img/header.png') }}" class="header" alt="">
             </div>
-          </div>
-
-          <div class="row">
+            <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li data-filter="*" class="filter-active">All</li>
-                {{-- <li data-filter=".filter-app">Science</li>
-                <li data-filter=".filter-card">Novel</li>
-                <li data-filter=".filter-web">Romance</li> --}}
+                <li data-filter=".filter-1">Science</li>
+                <li data-filter=".filter-2">History</li>
+                <li data-filter=".filter-3">Self-Improvement</li>
+                <li data-filter=".filter-4">Novel</li>
               </ul>
             </div>
           </div>
+          </div>
 
-         <div class="row portfolio-container">
+         <div class="container">
+            <div class="row portfolio-container">
             @foreach($buku as $bk)
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app mb-3">
-              <a href="{{ route('galeri.show', $bk->id) }}" class="img-link">
-                <img src="{{ asset('img/'. $bk->gambar) }}" width="259px" height="400px" class="img-fluid mb-4" alt="" />
-                <div class="portfolio-info">
-                <div class="row">
-                  <div class="col-9">
-                    <div class="d-flex justify-content-end">
-                      <a href="{{ route('galeri.show', $bk->id) }}" class="btn btn-info btn-sm" style="display: none"><i class="fa fa-eye"></i></a>
-                    </div>
-                  <h4 class="mb-2">{{ $bk->judul }}</h4>
-                  <p class="mb-2">{{ $bk->kategori }}</p>
+              <div class="col-lg-3 portfolio-item filter-4">
+                <a href="{{ route('galeri.show', $bk->id) }}" class="img-link">
+                    <img src="{{ asset('img/'. $bk->gambar) }}" class="img-fluid" alt="foto1" /></a>
+                  <div class="bd-highlight">
+                    <h4>{{ $bk->judul }}</h4>
+                    <p>{{ $bk->kategori }}</p>
                   </div>
-                </div>
-                </div>
               </div>
               @endforeach()
+            </div>
           </div>
         </div>
       </section>

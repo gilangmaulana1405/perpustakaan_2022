@@ -1,14 +1,18 @@
-<section id="hero">
+ <!-- Home section -->
+    <section id="hero">
       <div class="hero-container">
         <div data-aos="fade-in">
           <div class="hero-logo">
-            <a class="logo" href="#">Readee</a>
+            <a class="logo" href="/main-page/home"><img src="{{ asset('img/logo2.png') }}" alt="" /></a>
+            <h2>
+              Booking, borrowing books and checking book <br />
+              availability easily without queuing and instantly
+            </h2>
           </div>
-          <h1>Welcome to Readee</h1>
-          <h2>Enrich Literacy With Libraries Today <span class="typed" data-typed-items=""></span></h2>
           <div class="actions">
-            <a href="{{ route('galeri') }}" class="btn-get-started">Discover Library</a>
+            <a href="{{ route('galeri') }}" class="btn-get-started">Start Now</a>
           </div>
         </div>
       </div>
-</section>
+    </section>
+<!-- End of Home -->

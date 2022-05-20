@@ -1,9 +1,12 @@
 /* Umum */
 body {
-    background: #fff;
+    background: #f9f3ee;
     color: #666666;
     font-family: "Open Sans", sans-serif;
 }
+
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Assistant:wght@200;300;400;500;600;700&family=Fredoka:wght@300;400;500&family=Lobster&family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap");
 
 /* link" */
 a {
@@ -31,7 +34,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", sans-serif;
+    font-family: Poppins, sans-serif;
     font-weight: 400;
     margin: 0 0 20px 0;
     padding: 0;
@@ -47,39 +50,6 @@ h6 {
     height: 100%;
     overflow: visible;
     background: #fff url("../img/preloader.svg") no-repeat center center;
-}
-
-/*--------------------------------------------------------------
-  # Back to top button
-  --------------------------------------------------------------*/
-.back-to-top {
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    right: 15px;
-    bottom: 15px;
-    z-index: 996;
-    background: #03c4eb;
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    transition: all 0.4s;
-}
-
-.back-to-top i {
-    font-size: 28px;
-    color: #fff;
-    line-height: 0;
-}
-
-.back-to-top:hover {
-    background: #1bd6fc;
-    color: #fff;
-}
-
-.back-to-top.active {
-    visibility: visible;
-    opacity: 1;
 }
 
 /* Bagian Home -hero*/
@@ -99,13 +69,7 @@ h6 {
 
 #hero .hero-logo {
     margin: 20px;
-    height: 100px;
-}
-
-.logo {
-    font-family: "Aclonica", sans-serif;
-    font-size: 80px;
-    color: white;
+    height: 280px;
 }
 
 #hero .hero-logo img {
@@ -121,16 +85,8 @@ h6 {
     vertical-align: middle;
 }
 
-#hero h1 {
-    margin: 30px 0 10px 0;
-    font-weight: 700;
-    line-height: 48px;
-    text-transform: uppercase;
-    color: #fff;
-}
-
 @media (max-width: 768px) {
-    #hero h1 {
+    #hero img {
         font-size: 25px;
         line-height: 36px;
     }
@@ -138,24 +94,16 @@ h6 {
 
 #hero h2 {
     color: #ccc;
-    margin-bottom: 50px;
-}
-
-#hero h2 span {
-    color: #fff;
-    transition: 0.3s;
-    border-bottom: 2px solid #03c4eb;
+    margin-top: 20px;
+    opacity: 1;
+    line-height: 40px;
 }
 
 @media (max-width: 768px) {
     #hero h2 {
         font-size: 22px;
         line-height: 26px;
-        margin-bottom: 30px;
-    }
-
-    #hero h2 .rotating {
-        display: block;
+        margin-top: 10px;
     }
 }
 
@@ -169,17 +117,16 @@ h6 {
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 1px;
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 2px;
+    padding: 8px 15px;
+    border-radius: 8px;
     transition: 0.5s;
-    margin: 10px;
+    color: #fff;
 }
 
 #hero .btn-get-started {
-    background: #03c4eb;
-    border: 2px solid #03c4eb;
-    color: #fff;
+    background: #b9b9b97d;
+    border: 2px solid #dcd9d9;
+    padding: 30px;
 }
 
 #hero .btn-get-started:hover {
@@ -188,19 +135,9 @@ h6 {
     color: #fff;
 }
 
-#hero .btn-services {
-    border: 2px solid #fff;
-    color: #fff;
-}
-
-#hero .btn-services:hover {
-    background: #03c4eb;
-    border: 2px solid #03c4eb;
-}
-
 /* Bagian galeri - header/navbar */
 #header {
-    background: #0d0d0d;
+    background: #f9f3ee;
     transition: all 0.5s;
     z-index: 997;
     height: 70px;
@@ -213,23 +150,13 @@ h6 {
 }
 
 #header.fixed-top {
-    background: rgba(0, 0, 0, 0.85);
+    background: #f9f3ee;
+    opacity: 0.8;
 }
 
 #header .logo {
-    font-size: 30px;
     margin: 0;
     padding: 0;
-    line-height: 1;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: #fff;
-    font-family: "Aclonica", sans-serif;
-}
-
-.logo {
-    color: #fff;
-    font-family: "Aclonica", sans-serif;
 }
 
 .scrolled-offset {
@@ -264,11 +191,11 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0 10px 35px;
-    font-family: "Raleway", sans-serif;
-    font-size: 14px;
-    color: #fff;
-    white-space: nowrap;
+    padding: 10px 0 10px 40px;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: #512c1d;
+    font-weight: 500;
     transition: 0.3s;
 }
 
@@ -283,7 +210,7 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-    color: #03c4eb;
+    color: #d54f4e;
 }
 
 /* tampilan mobile  */
@@ -355,13 +282,14 @@ h6 {
     margin: 15px;
 }
 
-/* Title - Judul atas Page */
+/* Title - How to use page */
 .title-page {
     font-size: 32px;
-    color: #111;
+    color: #5c3424;
     text-transform: uppercase;
     text-align: center;
     font-weight: 700;
+    margin-top: 40px;
 }
 
 .description {
@@ -372,20 +300,20 @@ h6 {
 .section-title-page {
     width: 50px;
     height: 3px;
-    background: #03c4eb;
+    background: #f8e9dd;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
 /* Bagian Galeri */
-#portfolio {
-    background: #fff;
-    padding: 80px 0;
+#portfolio .container-fluid .banner {
+    background-size: cover;
+    padding: 0;
+    margin: 0;
 }
 
 #portfolio #portfolio-flters {
-    padding: 0;
-    margin: 0 auto 35px auto;
+    padding: 30px;
     list-style: none;
     text-align: center;
 }
@@ -404,15 +332,23 @@ h6 {
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-    color: #03c4eb;
+    color: #d54f4ecc;
+}
+
+#portofolio .portfolio-container {
+    padding: 30px;
+    margin: 20px;
+}
+
+#portfolio .portfolio-item img {
+    width: 270px;
+    height: 380px;
 }
 
 #portfolio .portfolio-item .bd-highlight {
-    width: 260px;
     opacity: 0;
     transition: all ease-in-out 0.3s;
     background: rgba(255, 255, 255, 0.85);
-    padding: 3px;
 }
 
 #portfolio .portfolio-item .bd-highlight p {
@@ -422,114 +358,43 @@ h6 {
 }
 
 #portfolio .portfolio-item:hover h4 {
+    margin-top: 5px;
     color: #202020;
     opacity: 2;
 }
 
 #portfolio .portfolio-item:hover .bd-highlight {
+    margin-top: 5px;
     opacity: 2;
 }
 
-.book-search {
-
-    background-size: cover;
-    background-position: center;
-    padding: 7% 0;
-    animation: animate 16s ease-in-out infinite;
+/* Icons */
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -0.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes animate {
-
-    0%,
-    100% {
-        background-image: url(../img/hero-bg1.png);
-    }
-
-    25% {
-        background-image: url(../img/2.png);
-    }
-
-    50% {
-        background-image: url(../img/3.jpg);
-    }
-
-    75% {
-        background-image: url(../img/4.jpg);
-    }
-
+.bi-house-door-fill::before {
+    content: "\f1cb";
 }
 
-.book-search input[type="search"] {
-    width: 50%;
-    padding: 1%;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
+.bi-house-door::before {
+    content: "\f1cc";
 }
 
-.searched-book {
-    min-height: 100vh;
-
-}
-
-.searched-book .title h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-#bookdetails {
-    min-height: 100vh;
-    background: #eeeee4;
-}
-
-.bookall {
-    position: relative;
-    width: 100%;
-    padding: 60px 0px;
-}
-
-.bookall .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.box {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas: "cover detail";
-    grid-gap: 10px;
-
-}
-
-.book {
-    padding: 40px;
-    background: #fff;
-    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
-}
-
-.cover {
-    grid-area: cover;
-}
-
-.detail {
-    grid-area: detail;
-}
-
-.peminjaman {
-    min-height: 100vh;
-}
-
-/* Services Section
---------------------------------*/
-#services {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img/services-bg.jpg") fixed center center;
-    background-size: cover;
-    padding: 80px 0 60px 0;
+/* Services Info Section */
+#services .container {
+    background-color: rgb(255, 251, 251);
 }
 
 #services .service-item {
@@ -538,10 +403,10 @@ h6 {
 
 #services .service-icon {
     float: left;
-    background: #03c4eb;
+    background: #cc7171cc;
     border-radius: 50%;
     transition: 0.5s;
-    border: 1px solid #03c4eb;
+    border: 2px solid #ce5858cc;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -560,7 +425,7 @@ h6 {
 }
 
 #services .service-item:hover .service-icon i {
-    color: #03c4eb;
+    color: #ce5858cc;
 }
 
 #services .service-title {
@@ -571,7 +436,7 @@ h6 {
 }
 
 #services .service-title a {
-    color: #111;
+    color: #5c3424;
 }
 
 #services .service-description {
@@ -579,22 +444,93 @@ h6 {
     line-height: 24px;
 }
 
+/* Footer 
+footer {
+  background-color: #d8aa63;
+  color: #fff;
+  height: 200px;
+  padding: 40px;
+  border-top: 1px solid white;
+  margin-top: 50px;
+  border-radius: 5px;
+}
 
-/*Footer Section */
+.footer-list li {
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.footer-list li {
+  list-style: none;
+}
+
+.footer-list {
+  padding-right: 40px;
+}
+
+.footer-list li a:link {
+  text-decoration: none;
+}
+
+.bottom {
+  height: 30px;
+  text-align: center;
+  border-top: 1px solid white;
+  padding-top: 2px;
+}
+
+.bottom h5 {
+  color: white;
+  background-color: black;
+}
+
+*/
 #footer {
-    background: #111;
-    padding: 30px 0;
+    background: #f7f8f9;
+    padding: 0 0 30px 0;
+    color: #364146;
+    font-size: 14px;
+}
+
+#footer .footer-top {
     color: #fff;
-    max-height: 150px;
+    background: #d8aa63;
+    padding: 40px 0 20px 0;
+}
+
+#footer .footer-top h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+}
+
+#footer .footer-top .footer-links ul {
+    color: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer .footer-top .footer-links ul li {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+#footer .footer-top .footer-links ul a {
+    color: #fff;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+    color: #d54f4e;
 }
 
 #footer .copyright {
+    height: 20px;
     text-align: center;
-}
-
-#footer .credits {
-    padding-top: 5px;
-    text-align: center;
-    font-size: 13px;
-    color: #ccc;
+    padding-top: 10px;
 }
