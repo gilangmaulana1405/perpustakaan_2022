@@ -48,12 +48,11 @@ class PinjamBukuController extends Controller
         return view('main-page.galeri.invoice', compact('data'));
     }
 
-
     public function edit(Request $request, $id)
     {
         $pinjambuku = PinjamBukuModel::find($id);
         return view('pinjambuku.edit', [
-            'title' => 'Edit Pinjma Buku',
+            'title' => 'Edit Pinjam Buku',
             'pinjambuku' => $pinjambuku
         ]);
     }
