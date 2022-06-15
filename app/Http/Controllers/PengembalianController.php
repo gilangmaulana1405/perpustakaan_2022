@@ -19,7 +19,7 @@ class PengembalianController extends Controller
      */
     public function index()
     {
-        $data = PengembalianModel::all();
+        $data = PengembalianModel::orderBy('created_at', 'desc')->get();
         return view('pengembalian.index', [
             'title' => 'Pengembalian',
             'pengembalian' => $data

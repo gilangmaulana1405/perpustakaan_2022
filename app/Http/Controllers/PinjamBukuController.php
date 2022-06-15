@@ -11,7 +11,7 @@ class PinjamBukuController extends Controller
 {
     public function index()
     {
-        $data = PinjamBukuModel::all();
+        $data = PinjamBukuModel::orderBy('created_at', 'desc')->get();
         return view('pinjambuku.index', [
             'title' => 'Pinjam Buku',
             'pinjam_buku' => $data

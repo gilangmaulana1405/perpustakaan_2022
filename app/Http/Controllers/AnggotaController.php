@@ -16,7 +16,7 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        $data = AnggotaModel::all();
+        $data = AnggotaModel::orderBy('nama_anggota', 'asc')->get();
         return view('anggota.index', [
             'title' => 'Anggota',
             'anggota' => $data

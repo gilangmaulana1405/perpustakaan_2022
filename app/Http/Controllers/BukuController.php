@@ -16,7 +16,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $data = BukuModel::all();
+        $data = BukuModel::orderBy('created_at', 'desc')->get();
         return view('buku.index', [
             'title' => 'Buku',
             'buku' => $data
